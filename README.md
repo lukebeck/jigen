@@ -1,5 +1,5 @@
 <div align="center">
-    <img width="500" height="350" src="src/logo.svg" alt="Jigen logo">
+    <img width="500" height="350" src="src/lib/logo.svg" alt="Jigen logo">
     <br>
     <h1>Jigen</h1>
 </div>
