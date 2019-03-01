@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider } from "styled-components";
 import Jigen from './Jigen';
-import Header from './styles/Header';
-
+import logo from './lib/logo.svg';
 
 const theme = {
   main: "crimson",
@@ -27,15 +26,79 @@ const Inner = styled.div`
   h1 {
     color: ${props => props.theme.main};
   }
+  h2 {
+    transform: skewX(-10deg);
+    font-size: 2rem;
+    margin: 2rem 0 0 0;
+    color: #4f4f4f;
+  }
 `;
+
+const Img = styled.img`
+    animation: App-logo-spin infinite 20s linear;
+    height: 5vmin;
+    pointer-events: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+const Logo = styled.h1`
+  font-size: 4rem;
+  text-align: center;
+  margin: 4rem;
+  transform: skewX(-10deg);
+  span {
+    border-radius: 0px 0px 0px 0px;
+    text-decoration: underline;
+    padding: 0.5rem 1rem;
+    background: ${props => props.theme.main};
+    color: white;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 2rem 0 0 0;
+
+    color: #4f4f4f;
+  }
+`;
+
+const StyledHeader = styled.header`
+  .bar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+`;
+
+const Header = () => (
+  <StyledHeader>
+      <Logo>
+        <span>Jigen</span>
+        <p> Kanji frequency analyser</p>
+      </Logo>
+  </StyledHeader>
+);
 
 class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
         <StyledPage>
-          <Header />
-          <Inner><Jigen/></Inner>
+          <Inner>
+            <Header />
+            <Jigen/>
+            <a href="https://github.com/lukebeck/jigen">
+              <Img src={logo} className="App-logo" alt="logo" />
+            </a>          
+          </Inner>
         </StyledPage>
       </ThemeProvider>
     );
